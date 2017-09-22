@@ -1,0 +1,84 @@
+= Producing a nice PDF from Asciidoctor
+:sourcedir: ../sources
+
+I have two preferred ways to generate PDF's from asciidoctor :
+
+- Either use the dockbook - fopub toolchain
+- Or use the new experimental asciidoctor-pdf gem
+
+Both of them have pro's and con's.
+
+
+== DocBook/fopub toolchain
+The docbook/fopub toolchain is the most reliable and supports most requirements.
+However, it takes more steps to put it in place, and the layout/theme/style is not PDF specific.
+
+=== Installation
+
+You will find instructions to install the toolchain here : 
+
+- https://github.com/asciidoctor/asciidoctor-fopub
+- https://github.com/asciidoctor/asciidoctor-stylesheet-factory
+- http://asciidoctor.org/docs/produce-custom-themes-using-asciidoctor-stylesheet-factory/
+
+=== Helper script
+
+Here is a little script to perform the whole conversion from asciidoctor to docbook xml to PDF :
+
+[source,ruby]
+----
+include::{sourcedir}/a2pdf[]
+----
+
+It takes for granted that you have installed
+
+- asciidoctor-fopub under /dev/tools
+- asciidoctor-stylesheet-factory under /dev/tools.
+
+== Asciidoctor-pdf toolchain
+
+The asciidoctor-pdf toolchain is still experimental and there are things which don't yet work as it is supposed to, like using asciidoctor notation in table cells, but there is a single file to define your layout, and specific notations dedicated to generating a pixel perfect printed copy of your book.
+
+=== Installation
+
+You'll find all information about how to install the toolchain here : http://asciidoctor.org/docs/convert-asciidoc-to-pdf/
+
+
+=== Layout/formatting tweaks
+The standard layout as published by Asciidoctor is fine out of the box, but I prefer to have smaller fonts for the different title levels in order to improve the reading flow. 
+
+It is just a personal taste, but you will find my attempt to improve it in the following file as an example 
+if you wish to acheive your own personal look :
+
+[source,yaml]
+----
+include::{sourcedir}/asciidoctor-pdf-lampiris-theme.yml[]
+----
+
+In order to test this theme, you should 
+
+- save this file (let's call it `my-theme.yml`) in a directory (let's call it `themeDir`).
+- invoke asciidoctor-pdf with the following arguments : +
+`asciidoctor-pdf -a pdf-style=my -a pdf-stylesdir=themeDir mysourcefile.adoc`
+
+=== Helper script
+Here is a helper script in order to invoke asciidoctor-pdf with the proper arguments so that it processes the diagrams, 
+and to rename the output file according to the source file version parameter :
+
+[source,ruby]
+----
+include::{sourcedir}/a2pdf2[]
+----
+
+If your source file contains `:version= 0.2` or `:revnumber: 0.2`, then the output file name will end with `xxx_v0.2.pdf``
+
+Usage is : `a2pdf {sourcefile.adoc} ...`
+
+It assumes that you have installed your personnal theme in your home directory.
+
+== Using Asciidoctor in your Maven driven project
+
+If you wish to document your project and the project is built using Maven, please consider using asciidoctor as the document builder toolchain.
+
+To know more about it, have a look at http://asciidoctor.org/docs/asciidoctor-maven-plugin/
+

@@ -1,0 +1,8 @@
+= How to install Asciidoctor ?
+
+The asciidoctor toolchain can be installed on nearly all mainstream operating systems, basically all operating systems supported for which there is a ruby language interpreter or a Java virtual machine.
+
+You can find more details about installing it on your machine here : 
+
+- http://asciidoctor.org/docs/install-toolchain/
+- for OSX : http://asciidoctor.org/docs/install-asciidoctor-osx/

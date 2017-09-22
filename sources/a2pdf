@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+ARGV.each do|a|
+  puts "Argument: #{a}"
+  if (File.exists?(a))
+    dir = File.dirname(File.expand_path(a))
+	basename = File.basename(a)
+	extname = File.extname(a)
+	basename = File.basename(a,extname)
+    puts "file exists : #{dir} / #{basename}  #{extname}"
+
+	Dir.chdir(ENV["HOME"]+"/dev/tools/asciidoctor-fopub")
+	output =  `asciidoctor -r asciidoctor-diagram -b docbook -d book -a stylesheet=github.css -a stylesdir=~/dev/tools/asciidoctor-stylesheet-factory/stylesheets '#{dir}/#{basename}#{extname}'`
+	puts output
+	output =  `./fopub "#{dir}/#{basename}.xml"`
+	puts output
+  xmlfile="#{dir}/#{basename}.xml"
+	if (File.exists?(xmlfile))
+    File.delete(xmlfile)
+  end
+  end
+
+end

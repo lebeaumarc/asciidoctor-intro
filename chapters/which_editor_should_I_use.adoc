@@ -1,0 +1,13 @@
+= Which editor should I use ?
+
+There are now many editors which support asciidoc either as a plugin, or as their main targetted document type.
+
+You can find a partial list here : http://asciidoctor.org/docs/editing-asciidoc-with-live-preview/
+
+None of them is perfect. Sometimes some diagrams are not rendered, some don't allow "undo/redo", ... You'll have to decide yourself which one suits best your purpose.
+
+My preference currently goes to Microsoft Visual Studio Code. 
+
+But the important thing is : all of them allow you to fluently put your ideas on paper, and only take some time later to refine them and structure them in such a way that you'll be able to re-use them.
+
+So far, none of them included an automated PDF rendering worth mentioning. That's why I keep my little ruby scripts at hand.

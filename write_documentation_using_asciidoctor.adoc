@@ -1,0 +1,33 @@
+= Writing documentation using Asciidoctor
+Marc Lebeau <Marc.Lebeau@lampiris.be>
+:description: A brief introduction to Asciidoctor and how it can help you write structured documentation.
+:numbered:
+:sectnums:
+:toclevels: 4
+:doctype: book
+:docinfo:
+:nofootnotes:
+:revdate:   2017-09-22
+:revnumber: 1.0
+:imagesdir: ./images
+:sourcedir: ./sources
+:chapters: ./chapters
+:pdf-page-size: A4
+:toc: left
+
+Please note that the full source code of this article is available on github at the following url :
+
+https://github.com/lebeaumarc/asciidoctor-intro
+
+It may serve as an example of how a structured document could be organised. 
+
+Each `.adoc` document in the `chapters` subdirectory can be rendered separately.
+
+The `.adoc` file in the root directory would collate all the chapters subdocuments in a single, structured document. 
+
+include::{chapters}/what_is_asciidoctor.adoc[leveloffset=+1]
+include::{chapters}/how_to_install_asciidoctor.adoc[leveloffset=+1]
+include::{chapters}/which_editor_should_i_use.adoc[leveloffset=+1]
+include::{chapters}/producing_a_pdf.adoc[leveloffset=+1]
+include::{chapters}/examples.adoc[leveloffset=+1]
+include::{chapters}/resources.adoc[leveloffset=+1]

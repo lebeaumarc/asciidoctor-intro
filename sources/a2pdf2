@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+ARGV.each do|a|
+  puts "Argument: #{a}"
+  if (File.exists?(a))
+    dir = File.dirname(File.expand_path(a))
+	basename = File.basename(a)
+	extname = File.extname(a)
+	basename = File.basename(a,extname)
+        version = File.open(a).grep(/^:version:|:revnumber:/)[0].chomp().split(/:/)[2].strip()
+    puts "Source File : #{dir}/#{basename}#{extname}    version=#{version}"
+
+	Dir.chdir(ENV["HOME"]+"/dev/tools/asciidoctor-fopub")
+        inputfilename="#{dir}/#{basename}#{extname}"
+	output =  `asciidoctor -r asciidoctor-diagram -r asciidoctor-pdf -n -a pdf-style=asciidoctor-pdf-lampiris -a pdf-stylesdir=#{ENV["HOME"]} -b pdf '#{inputfilename}'`
+        Dir.chdir(dir)
+        unless (version.empty?)
+            targetFilename = "#{basename}_v#{version}.pdf"
+            File.rename("#{basename}.pdf","#{targetFilename}") 
+            puts "Created #{dir}/#{targetFilename} file"
+        else
+            puts "Created #{dir}/#{basename}.pdf file"
+        end
+	puts output
+        
+  end
+
+end

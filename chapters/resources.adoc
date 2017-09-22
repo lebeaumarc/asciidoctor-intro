@@ -1,0 +1,8 @@
+= Asciidoctor Resources
+
+|===
+| Description | link
+| Asciidoctor tips and tricks by Mr Haki | https://mrhaki.blogspot.be/search/label/Awesome%3AAsciidoctor
+| Asciidoctor syntax quick reference | http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
+| Tips about asciidoctor from Mgreau | http://mgreau.com/posts/tag/Asciidoctor/
+|===

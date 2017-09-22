@@ -1,0 +1,21 @@
+= What is asciidoctor and why would I choose to use it ?
+
+Asciidoctor is a toolchain that implements the Asciidoc markup language.
+
+Asciidoc is kind of Markdown on steroïds, or if you see it from another perspective, it is a human readable docbook notation.
+
+That doesn't mean much to you right now, but just imagine that you could write your documentation with as much ease as you write emails ...
+Just imagine that you can easily structure that documentation, that you can collaborate and version your documentation using GIT, and that you can publish the documentation you just wrote once on a web-site, in confluence or in a book !
+
+The main idea behind Markdown and asciidoc is that you should be able to let your fingers type exactly what your brain is thinking about, without being slowed down by formatting and layout considerations.
+You just align your ideas on the screen, and when you are happy with it, you can then add some minimal annotations to structure your ideas. The asciidoctor toolchain will take of the formatting and the layout, based on a set of rules you have established once and for all for your purpose.
+The toolchain comes with a predefined layout, but you can adapt it as you wish. For example, the very document you read has been adapted to my tastes and to the Lampiris colour code.
+
+Another thing that is very important, is that the tool allows you to use plantuml and other diagram notations right in your document in order to generate diagrams, images, source code excerpts directly in the flow of your document.
+
+
+The tool is so powerful that companies like redhat,O'Reilly, Pivotal (the company behind the spring framework) have decided to rewrite their entire documentation set using asciidoc. The actual documentation you see on their web-sites and books is using the same toolset *you* can leverage for your own documentation purposes.
+
+This chapter is just a teaser ... you can find more details at http://asciidoctor.org/docs/what-is-asciidoctor/
+
+
